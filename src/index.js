@@ -3,10 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Provider} from 'mobx-react';
+import {TicTac as ticTac} from './stores/TicTac';
+
+const TicTac = new ticTac();
+
+const stores = {
+  TicTac
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider {...stores}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
